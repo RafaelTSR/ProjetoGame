@@ -1,4 +1,4 @@
-public class Sistema {
+public class Resultado {
     public static boolean acerto(){
         int resultado = Dados.d20();
         //DEPOIS INSERIR CA INIMIGA E O ATRIBUTO
