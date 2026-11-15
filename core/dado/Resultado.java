@@ -1,6 +1,6 @@
 public class Resultado {
-    public static boolean acerto(){
-        int resultado = Dados.d20();
+    public static boolean acerto(int dado){
+        int resultado = Dados.rolar(dado);
         //DEPOIS INSERIR CA INIMIGA E O ATRIBUTO
         int CA = 10;
         int bonus = 2;
