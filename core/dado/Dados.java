@@ -1,17 +1,31 @@
+package core.dado;
 import java.util.Random;
 
 public class Dados {
     private static final Random random = new Random();
+    private final int quantidade;
+    private final int lados;
 
-    public static int rolar(int lados) {
-        return random.nextInt(lados) + 1;
+    public Dados (int quantidade, int lados){
+        this.quantidade = quantidade;
+        this.lados = lados;
     }
 
-    public static int rolar(int quantidade, int lados) {
+    public int getQuantidade() { return quantidade; }
+    public int getLados() { return lados;}
+
+    public int rolar(Dados dado){
         int total = 0;
-        for (int i = 0; i < quantidade; i++) {
-            total += rolar(lados);
+
+        for (int i = 0; i < dado.getQuantidade(); i++){
+            total += random.nextInt(dado.getLados()) +1;
+            
         }
         return total;
     }
+
+    public static int rolar(int lados) {
+    return random.nextInt(lados) + 1;
+}
+
 }

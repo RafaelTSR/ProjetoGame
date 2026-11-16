@@ -1,0 +1,5 @@
+package core.carta;
+
+public enum TipoDano {
+    CORTANTE, PERFURANTE, CONTUNDENTE, GELO, FOGO, ELETRICO, RADIANTE, NECROTICO, ENERGIA
+}

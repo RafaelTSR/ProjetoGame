@@ -1,9 +1,7 @@
-public class Resultado {
+/*public class Resultado {
     public static boolean acerto(int dado){
         int resultado = Dados.rolar(dado);
-        //DEPOIS INSERIR CA INIMIGA E O ATRIBUTO
-        int CA = 10;
-        int bonus = 2;
+        
         if (resultado == 20) {
             System.out.println("D20: " + resultado + " + " + bonus);
             System.out.println("Resultado: " + (resultado + bonus));
@@ -29,4 +27,4 @@ public class Resultado {
             return false;
         }
     }
-}
+}*/
