@@ -10,10 +10,11 @@ public abstract class Ator {
     protected int vidaMaxima;
     protected Atributos atributos;
 
-    public Ator(String nome, int vida) {
+    public Ator(String nome, int vida, Atributos atributos) {
         this.nome = nome;
         this.vida = vida;
         this.vidaMaxima = vida;
+        this.atributos = atributos;
     }
 
     public boolean estaVivo() {

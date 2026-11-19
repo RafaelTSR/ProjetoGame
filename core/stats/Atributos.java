@@ -25,7 +25,7 @@ public class Atributos {
 
     //Calcula o resultado do modificador
     public int modificador(Atributo a){
-        return Math.floorDiv(get(a) - 1, 2);
+        return Math.floorDiv(get(a) - 10, 2);
     }
 
     // função p/ adicionar buff após usar uma carta
