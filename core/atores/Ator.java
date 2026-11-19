@@ -25,10 +25,12 @@ public abstract class Ator {
     }
 
     public void receberDano(int dano) {
+        //Devolve o maior
         vida = Math.max(0, vida - dano);
     }
 
     public void curar(int quantidade) {
+        //Devolve o menor
         vida = Math.min(vidaMaxima, vida + quantidade);
     }
 

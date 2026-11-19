@@ -3,6 +3,7 @@ package core.efeitos;
 import core.atores.Ator;
 import core.carta.TipoDano;
 import core.dado.Dados;
+import core.carta.Carta;
 
 public class EfeitoDano implements Efeito {
     private final Dados dados;
@@ -14,7 +15,7 @@ public class EfeitoDano implements Efeito {
     }
 
     @Override
-    public void aplicar(Ator usuario, Ator alvo) {
+    public void aplicar(Ator usuario, Ator alvo, Carta carta) {
         int dano = dados.rolar();
         alvo.receberDano(dano);
     }
