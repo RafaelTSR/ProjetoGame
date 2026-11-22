@@ -8,10 +8,11 @@ public class EfeitoCura implements Efeito{
     private final Dados dado;
 
     public EfeitoCura (Dados dado){
-                this.dado = dado;
+        this.dado = dado;
     }
 
-    // Cura voce mesmo, dps pensar como curar mais pessoas.
+    //Obs 1: Cura voce mesmo, dps pensar como curar mais pessoas.
+    //Obs 2: Dps pensar em curar dado + nv.
     @Override
     public void aplicar(Ator usuario, Ator alvo, Carta carta) {
         int cura = dado.rolar() + usuario.getAtributos().modificador(carta.getAtributo());
