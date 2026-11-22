@@ -13,7 +13,7 @@ public class BuffDanoExtra implements Buff {
 
     @Override
     public int bonusAoCausarDano() {
-        usosRestantes--;            // gasta um uso
+        usosRestantes--;
         return dado.rolar();
     }
 
