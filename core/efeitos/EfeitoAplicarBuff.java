@@ -12,7 +12,6 @@ public class EfeitoAplicarBuff implements Efeito {
 
     @Override
     public void aplicar(Ator usuario, Ator alvo, Carta carta) {
-        // método futuro do Ator
-        //alvo.adicionarBuff(buff);
+        alvo.adicionarBuff(buff);
     }
 }
