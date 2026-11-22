@@ -17,7 +17,7 @@ public class EfeitoDano implements Efeito {
     @Override
     public void aplicar(Ator usuario, Ator alvo, Carta carta) {
         int dano = dados.rolar() + usuario.getAtributos().modificador(carta.getAtributo());
-        alvo.receberDano(dano);
+        alvo.receberDano(dano , tipoDano);
     }
 
     public Dados getDados() { return dados; }
