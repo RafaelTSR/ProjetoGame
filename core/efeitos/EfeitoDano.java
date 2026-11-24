@@ -17,18 +17,22 @@ public class EfeitoDano implements Efeito {
     @Override
     public void aplicar(Ator usuario, Ator alvo, Carta carta) {
         // O alvo vai receber o dado da carta
-        int dano = dados.rolar() + usuario.getAtributos().modificador(carta.getAtributo());
+        // ALTERAÇÃO: cartas sem atributo usam somente o valor dos dados.
+        int dano = dados.rolar();
+        if (carta.getAtributo() != null) {
+            dano += usuario.getAtributos().modificador(carta.getAtributo());
+        }
         alvo.receberDano(dano , tipoDano);
 
         //O Alvo vai receber danos adicionais de Buff
         for (Buff b : usuario.getBuffs()){
-            TipoDano tipoExtra = b.TipoDanoAdicional();
-            //Pular buufs gastos e buffs q não são de dano
-            if (!b.ativo() && tipoExtra == null) {
+            TipoDano tipoExtra = b.tipoDanoAdicional();
+            // ALTERAÇÃO: ignora buff gasto OU sem tipo de dano adicional.
+            if (!b.ativo() || tipoExtra == null) {
                 continue;
             }
-        int danoExtra = b.bonusAoCausarDano();
-        alvo.receberDano(danoExtra, tipoExtra);
+            int danoExtra = b.bonusAoCausarDano();
+            alvo.receberDano(danoExtra, tipoExtra);
         }
     }
 

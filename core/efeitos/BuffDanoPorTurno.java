@@ -12,6 +12,8 @@ public class BuffDanoPorTurno implements Buff {
     public BuffDanoPorTurno(Dados dano, TipoDano tipoDano, int turnos) {
         this.dano = dano;
         this.tipoDano = tipoDano;
+        // ALTERAÇÃO: duração inicial precisa ser positiva.
+        if (turnos <= 0) throw new IllegalArgumentException("Turnos devem ser positivos");
         this.turnosRestantes = turnos;
     }
 

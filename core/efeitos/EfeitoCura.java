@@ -15,7 +15,11 @@ public class EfeitoCura implements Efeito{
     //Obs 2: Dps pensar em curar dado + nv.
     @Override
     public void aplicar(Ator usuario, Ator alvo, Carta carta) {
-        int cura = dado.rolar() + usuario.getAtributos().modificador(carta.getAtributo());
+        // ALTERAÇÃO: permite cura sem atributo, como Segundo Fôlego (1d10).
+        int cura = dado.rolar();
+        if (carta.getAtributo() != null) {
+            cura += usuario.getAtributos().modificador(carta.getAtributo());
+        }
         usuario.curar(cura);
     }
 }

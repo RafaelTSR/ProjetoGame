@@ -9,6 +9,10 @@ public class Dados {
     private final int lados;
 
     public Dados(int quantidade, int lados) {
+        // ALTERAÇÃO: quantidade e lados devem ser positivos.
+        if (quantidade <= 0 || lados <= 0) {
+            throw new IllegalArgumentException("Quantidade e lados devem ser positivos");
+        }
         this.quantidade = quantidade;
         this.lados = lados;
     }
@@ -25,6 +29,8 @@ public class Dados {
     }
 
     public static int rolar(int lados) {
+        // ALTERAÇÃO: valida também a rolagem estática.
+        if (lados <= 0) throw new IllegalArgumentException("Lados devem ser positivos");
         return random.nextInt(lados) + 1;
     }
 }

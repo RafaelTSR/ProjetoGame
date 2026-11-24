@@ -10,6 +10,7 @@ public interface Buff {
     default void aoExpirar(Ator dono) {}              // quando sai do ator
     default void aoIniciarTurno(Ator dono) {}         // todo início de turno do dono
     default int bonusAoCausarDano() { return 0; }     // dado extra por ataque (futuro)
-    default TipoDano TipoDanoAdicional () { return null;}
+    // ALTERAÇÃO: nome padronizado para permitir a sobrescrita correta.
+    default TipoDano tipoDanoAdicional() { return null; }
     default int bonusCA() { return 0; }               // somado no getCA()
 }

@@ -63,19 +63,23 @@ public class CatalogoCartas {
             .build();
         public static final Carta INVESTIDA = new Carta.Builder(11, "Investida", TipoCarta.TECNICA, 4)
         //Ideia Futura: Vantagem no proximo Ataque.
+            .atributo(Atributo.FORCA)
             .efeito(new EfeitoDano(new Dados(1, 8), TipoDano.CONTUNDENTE))
             .build();
         public static final Carta GOLPE_ATORDOANTE = new Carta.Builder(12, "Golpe Atordoante", TipoCarta.TECNICA, 3)
         //Ideia Futura: Colocar Efeito Atordoante.
+            .atributo(Atributo.FORCA)
             .efeito(new EfeitoDano(new Dados(1, 6), TipoDano.CONTUNDENTE))
             .build();
         public static final Carta SEGUNDA_FOLEGO = new Carta.Builder(13, "Segunda Folego", TipoCarta.TECNICA, 1)
+            // ALTERAÇÃO: cura sem atributo é suportada por EfeitoCura.
             .efeito(new EfeitoCura(new Dados(1, 10)))
             .build();
         
         //>>>>>>>>>>>>>>>>>>>>> Mago <<<<<<<<<<<<<<<<<<<<<<<<
         public static final Carta CONCENTRACAO = new Carta.Builder(14, "Concentração", TipoCarta.TECNICA, 2)
-        .efeito(new EfeitoAplicarBuff(new BuffDanoExtra(new Dados(1, 4), TipoDano.ENERGIA, 1)))
+        // ALTERAÇÃO: o efeito cria um novo buff a cada utilização.
+        .efeito(new EfeitoDanoExtra(new Dados(1, 4), TipoDano.ENERGIA, 1))
         .build();
         
     

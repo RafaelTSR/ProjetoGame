@@ -10,13 +10,17 @@ public class BuffDanoExtra implements Buff {
 
 
     public BuffDanoExtra(Dados dado, TipoDano tipo, int usos) {
-        this.dado = dado;
-        this.tipo = tipo;
+        // ALTERAÇÃO: valida os dados do buff antes de utilizá-lo.
+        if (usos <= 0) throw new IllegalArgumentException("Usos devem ser positivos");
+        this.dado = java.util.Objects.requireNonNull(dado, "dado");
+        this.tipo = java.util.Objects.requireNonNull(tipo, "tipo");
         this.usosRestantes = usos;
     }
 
     @Override
     public int bonusAoCausarDano() {
+        // ALTERAÇÃO: um buff gasto não pode causar dano novamente.
+        if (!ativo()) return 0;
         usosRestantes--;
         return dado.rolar();
     }
@@ -25,6 +29,10 @@ public class BuffDanoExtra implements Buff {
     public boolean ativo() {
         return usosRestantes > 0;
     }
+
+    // ALTERAÇÃO: sobrescreve o método que EfeitoDano realmente consulta.
+    @Override
+    public TipoDano tipoDanoAdicional() { return tipo; }
 
     public TipoDano getTipoDano(){ return tipo; }
 }

@@ -8,6 +8,8 @@ public class BuffCA implements Buff {
 
     public BuffCA(int valor, int turnos) {
         this.valor = valor;
+        // ALTERAÇÃO: duração inicial precisa ser positiva.
+        if (turnos <= 0) throw new IllegalArgumentException("Turnos devem ser positivos");
         this.turnosRestantes = turnos;
     }
 

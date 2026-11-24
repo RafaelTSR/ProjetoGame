@@ -11,6 +11,8 @@ public class BuffAtributo implements Buff {
     public BuffAtributo(Atributo atributo, int valor, int turnos) {
         this.atributo = atributo;
         this.valor = valor;
+        // ALTERAÇÃO: duração inicial precisa ser positiva.
+        if (turnos <= 0) throw new IllegalArgumentException("Turnos devem ser positivos");
         this.turnosRestantes = turnos;
     }
 

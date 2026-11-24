@@ -11,6 +11,8 @@ public class Deck {
 
     // Vai adicionar uma carta no deck.
     public void adicionar(Carta carta){
+        // ALTERAÇÃO: impede cartas nulas no deck.
+        java.util.Objects.requireNonNull(carta, "carta");
         if(deck.size() < LIMITE){
             deck.add(carta);
         }    
@@ -18,10 +20,11 @@ public class Deck {
 
     //Usado para adicionar multiplas da msm carta no deck.
     public void adicionar(Carta carta, int quantidade){
-        for(int i = 0; i < quantidade; i++){
-            if(deck.size() < LIMITE){
-                deck.add(carta);
-            } 
+        // ALTERAÇÃO: reutiliza adicionar e para quando o deck estiver cheio.
+        java.util.Objects.requireNonNull(carta, "carta");
+        if (quantidade < 0) throw new IllegalArgumentException("Quantidade negativa");
+        for(int i = 0; i < quantidade && deck.size() < LIMITE; i++){
+            adicionar(carta);
         }
     }
 
